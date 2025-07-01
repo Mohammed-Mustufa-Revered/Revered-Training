@@ -1,0 +1,8 @@
+Basic AJAX Workflow (with XML):
+Client sends AJAX request to the server.
+
+Server responds with XML data.
+
+JavaScript processes the XML using the XMLHttpRequest object or fetch().
+
+Webpage updates dynamically without full reload.

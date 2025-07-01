@@ -1,0 +1,33 @@
+<button onclick="loadData()">Load Student Info</button>
+<div id="output"></div>
+<script>
+    // This function will be called when the button is clicked
+function loadData() {
+    // Create a new XMLHttpRequest object
+    var xhttp = new XMLHttpRequest();
+    // Define a callback function to handle the response
+    xhttp.onreadystatechange = function() {
+        // Check if the request is complete and was successful
+        // The readyState 4 means the request is done, and status 200 means OK
+   
+        if (this.readyState == 4 && this.status == 200) {
+            // Parse the XML response
+            var xmlDoc = this.responseXML;
+            // Extract the data from the XML
+            var name = xmlDoc.getElementsByTagName("name")[0].childNodes[0].nodeValue;
+            // Assuming the course is also present in the XML
+            // If the XML structure is different, adjust accordingly
+            var course = xmlDoc.getElementsByTagName("course")[0].childNodes[0].nodeValue;
+            // Display the data in the output div
+            var age = xmlDoc.getElementsByTagName("age")[0].childNodes[0].nodeValue;
+            document.getElementById("output").innerHTML = "Name: " + name + "<br>Course: " + course + "<br> age:" + age;
+        }
+
+    };
+    // Open a GET request to the XML file
+    xhttp.open("GET", "student.xml", true);
+    // Send the request
+    xhttp.send();
+}
+</script>
+
