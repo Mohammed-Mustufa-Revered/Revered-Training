@@ -20,7 +20,9 @@ function loadData() {
             var course = xmlDoc.getElementsByTagName("course")[0].childNodes[0].nodeValue;
             // Display the data in the output div
             var age = xmlDoc.getElementsByTagName("age")[0].childNodes[0].nodeValue;
-            document.getElementById("output").innerHTML = "Name: " + name + "<br>Course: " + course + "<br> age:" + age;
+            var email = xmlDoc.getElementsByTagName("email")[0].childNodes[0].nodeValue;
+            document.getElementById("output").innerHTML = "Name: " + name + "<br>Course: " + course + "<br> age:" + age 
+            + "<br> Email: " + email;
         }
 
     };
