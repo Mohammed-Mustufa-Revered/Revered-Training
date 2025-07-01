@@ -1,0 +1,45 @@
+ <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+</head>
+<body>
+
+  <table border="1" cellspacing="0" cellpadding="10px">
+    <tr>
+      <td><h1>PHP with AJAX</h1></td>
+      <div id ="search-bar">
+        <label> Search :</label>
+        <input type="text"  id="search" autocomplete="off">
+      </div>
+    </tr>
+    <tr>
+      <td>
+        <input type="button" id="load-button" value="Load Data">
+      </td>
+    </tr>
+    <tr>
+      <td id="load-data"></td>
+    </tr>
+  </table>
+
+  <script type="text/javascript">
+    $(document).ready(function () {
+      $("#load-button").on("click", function () {
+        $.ajax({
+          url: "ajax-load.php",  // PHP file must exist
+          type: "POST",
+          success: function (data) {
+            $("#load-data").html(data);
+          },
+          error: function () {
+            alert("Failed to load data via AJAX");
+          }
+        });
+      });
+
+     
+     
+    });
+  </script>
+  
+
+</body>
+</html>
